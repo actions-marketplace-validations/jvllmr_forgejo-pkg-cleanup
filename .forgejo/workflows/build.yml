@@ -25,14 +25,14 @@ jobs:
       - run: echo root:1:65536 | tee /etc/subuid /etc/subgid
       - run: mv /etc/containers/storage.conf /etc/containers/storage.conf.bak || true
       - run: printf '[storage]\ndriver="vfs"\nrunroot="/run/containers/storage"\ngraphroot="/var/lib/containers/storage"\n' | tee /etc/containers/storage.conf
-      - uses: https://github.com/actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd # v6.0.2
+      - uses: https://github.com/actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
         with:
           persist-credentials: false
           fetch-tags: true
           fetch-depth: 0
       - name: Get docker tags
         id: metadata
-        uses: docker/metadata-action@030e881283bb7a6894de51c315a6bfe6a94e05cf # v6.0.0
+        uses: docker/metadata-action@dc802804100637a589fabce1cb79ff13a1411302 # v6.2.0
         with:
           images: |
             codeberg.org/jvllmr/forgejo-pkg-cleanup
